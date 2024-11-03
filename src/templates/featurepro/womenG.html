@@ -1,0 +1,182 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Women Gown For Ladies - Princess Luxuries</title>
+    <link href="../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <style>
+    .checkout-btn {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    text-decoration: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    cursor: pointer;
+}
+
+.checkout-btn:hover {
+    background-color: #218838;
+}
+
+        .product-details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .product-image {
+            flex: 1;
+            max-width: 500px;
+        }
+        .product-image img {
+            width: 100%;
+            height: auto;
+        }
+        .product-info {
+            flex: 1;
+            padding: 0 20px;
+        }
+        .vendor-info {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .add-to-cart-form {
+            margin-top: 20px;
+        }
+        .add-to-cart-btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .add-to-cart-btn:hover {
+            background-color: #0056b3;
+        }
+        .message {
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+        }
+        .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+        .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+        .quantity-input {
+            width: 60px;
+            padding: 5px;
+            margin-right: 10px;
+        }
+       .view-count {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="index-2.html" class="logo">Princess Luxuries</a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="#">Clothing</a></li>
+                    <li><a href="#">Accessories</a></li>
+                    <li><a href="#">Vendors</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li>
+                        <a href="cart.html" class="cart-icon">
+                            <i class="fas fa-shopping-cart"></i>
+                            <span class="cart-count">1</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="product-details">
+            <div class="product-image">
+                <img src="{% static 'images/dress1.jpg' %}" alt="Women Gown For Ladies">
+            </div>
+            <div class="product-info">
+                <h1>Women Gown For Ladies</h1>
+                <p class="price">Price: N1900.99</p>
+                <div class="rating">
+                    ★★★★★ (4.5)                </div>
+                <p>The concept is designed to suit the very desire of having most of our everyday motivations in a simple, handy, convenient, comfortable and easy to handle wear.</p>
+                <p class="view-count">Views: 3</p>
+                
+                <form class="add-to-cart-form" method="post">
+                    <input type="number" name="quantity" value="1" min="1" class="quantity-input">
+                    <input type="hidden" name="add_to_cart" value="1">
+                    <button type="submit" class="add-to-cart-btn">Add to Cart</button>
+                </form>
+                
+                                
+                <!-- Checkout Button -->
+<div class="checkout-button-container" style="margin-top: 20px;">
+    <a href="{% url 'womenG2' %}" class="checkout-btn">Proceed to Checkout</a>
+</div>
+
+                <div class="vendor-info">
+                    <h3>Vendor: Elegant Designs</h3>
+                    <p>Specializing in high-end fashion</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Princess Luxuries. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+    document.querySelector('.add-to-cart-btn').addEventListener('click', function(e) {
+        e.preventDefault();
+        const form = document.querySelector('.add-to-cart-form');
+        const formData = new FormData(form);
+
+        fetch(window.location.href, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.text())
+        .then(html => {
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(html, 'text/html');
+            const newCartCount = doc.querySelector('.cart-count').textContent;
+            document.querySelector('.cart-count').textContent = newCartCount;
+            
+            const messageDiv = document.createElement('div');
+            messageDiv.className = 'message success';
+            messageDiv.textContent = 'Product added to cart successfully!';
+            form.appendChild(messageDiv);
+
+            setTimeout(() => {
+                messageDiv.remove();
+            }, 3000);
+        })
+        .catch(error => console.error('Error:', error));
+    });
+    </script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us</title>
+
+    <link href="{% static '../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+<!--video-->
+
+    <div class="video-slider">
+        <div class="video-slide active">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video1.webm' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video2.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video3.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video2.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+<!--End video-->
+    <div class="container mt-5">
+        <h1 class="text-center">Contact Us</h1>
+
+        <form>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Email</label>
+                <input type="email" class="form-control" id="email" required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" rows="4" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+
+    <div class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with our latest offers and products!</p>
+            <form method="post" action="#">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+                    </div>
+    </div>
+
+    <div id="productModal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="close">&times;</span>
+            <div id="productDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Princess Luxuries. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static '../code.jquery.com/jquery-3.6.0.min.js' %}"></script>
+</body>
+</html>

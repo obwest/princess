@@ -1,0 +1,98 @@
+/* Add any additional styles here */
+        .cart-icon {
+            position: relative;
+            display: inline-block;
+        }
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+        }
+        .in-wishlist {
+            color: red;
+        }
+        .vendor-name {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+        .product-modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.4);
+        }
+        .product-modal-content {
+            background-color: #fefefe;
+            margin: 15% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+          /* Vendors list styles */
+        .vendors-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 40px 0;
+        }
+        .vendor {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .vendor h3 {
+            margin-bottom: 10px;
+        }
+        .vendor a {
+            display: inline-block;
+            margin-top: 10px;
+            color: #007bff;
+            text-decoration: none;
+        }
+         .prod-btn {
+            background-color: #007bff;
+            color: white;
+
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        .prod-btn:hover {
+            background-color: #c82333;
+        }
+        h2 {
+    font-size: 2.5rem;               /* Larger font for emphasis */
+    color: #333;                     /* Dark color for readability */
+    font-weight: 700;                /* Bold font */
+    text-align: center;              /* Center the heading */
+    margin-bottom: 1.5rem;           /* Space below the heading */
+    position: relative;              /* Relative positioning for additional effects */
+    padding-bottom: 0.5rem;          /* Padding below the text */
+}
+
+h2::after {
+    content: "";                     /* Create a decorative line under the heading */
+    display: block;
+    width: 50px;                     /* Length of the decorative line */
+    height: 4px;                     /* Thickness of the line */
+    background-color: #ff6600;       /* Accent color */
+    margin: 0.5rem auto 0;           /* Center the line and add space above */
+}

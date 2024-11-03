@@ -1,0 +1,104 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Princess Luxuries - Clothing and Accessories</title>
+    <link href="{% static '../cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/index.css' %}">
+    <style>
+
+    </style>
+</head>
+<body>
+     <header>
+        <div class="container">
+            <a href="{% url 'index' %}" class="logo">Princess Luxuries</a>
+            <nav>
+                <ul>
+                    <li><a href="{% url 'index' %}">Home</a></li>
+                    <li><a href="{% url 'cloth' %}">Clothing</a></li>
+                    <li><a href="{% url 'accessories' %}">Accessories</a></li>
+                    <li><a href="{% url 'vendors' %}">Vendors</a></li>
+                    <li><a href="{% url 'contact' %}">Contact</a></li>
+                    <li><a href="{% url 'login' %}">Login</a><li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+<div>
+    <div class="container">
+        <div class="search-bar">
+            <input type="text" placeholder="Search for clothing and accessories...">
+            <button type="submit"><i class="fas fa-search"></i></button>
+        </div>
+    </div>
+
+    <div class="video-slider">
+        <div class="video-slide active">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video1.webm' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video2.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video3.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+        <div class="video-slide">
+            <video autoplay loop muted>
+                <source src="{% static 'vm/video2.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>Featured Categories</h2>
+        <div class="featured-categories">
+            <div class='category'><img src="{% static 'images/woamna.jpg' %}" alt='Clothing'><h3>Clothing</h3></div><div class='category'><img src="{% static 'images/aceesories.jpg' %}" alt='Accessories'><h3>Accessories</h3></div><div class='category'><img src="{% static 'images/bags.jpg' %}" alt='Bags'><h3>Bags</h3></div>        </div>
+
+            <h2>Featured Products</h2>
+        <div class="featured-products">
+            <div class='product' data-product-id='1'><img src="{% static 'images/dress1.jpg' %}" alt='Women Gown For Ladies'><h3>Women Gown For Ladies</h3><p class='vendor-name'>Elegant Designs</p><div class='rating'>★★★★★ (4.5)</div><div class='tags'><span class='tag'>summer</span><span class='tag'>casual</span></div><p>N1900.99</p><a href="{% url 'womenG' %}" class='prod-btn'>View Product</a><button class='wishlist-btn ' data-product-id='1'><i class='fas fa-heart'></i></button></div><div class='product' data-product-id='3'><img src="{% static 'images/dress2.jpg' %}" alt='Silver Necklace'><h3>Silver Necklace</h3><p class='vendor-name'>Elegant Designs</p><div class='rating'>☆☆☆☆☆ (0.0)</div><div class='tags'><span class='tag'>formal</span><span class='tag'>trendy</span></div><p>N2069.99</p><a href="{% url 'silver1' %}" class='prod-btn'>View Product</a><button class='wishlist-btn in-wishlist' data-product-id='3'><i class='fas fa-heart'></i></button></div><div class='product' data-product-id='4'><img src="{%static 'images/dress3.jpg' %}" alt='Office Lady Classy Casual '><h3>Office Lady Classy Casual </h3><p class='vendor-name'>Chic Accessories</p><div class='rating'>☆☆☆☆☆ (0.0)</div><div class='tags'><span class='tag'>casual</span><span class='tag'>trendy</span></div><p>N79.99</p><a href="{% url 'officeL' %}" class='prod-btn'>View Product</a><button class='wishlist-btn in-wishlist' data-product-id='4'><i class='fas fa-heart'></i></button></div><span class='tag'></span></div> </div>
+<div class = "container">
+        <h2>Our Vendors</h2>
+        <div class="vendors-list">
+            <div class='vendor'><h3>Elegant Designs</h3><p>Specializing in high-end fashion</p><a href="{% url 'g1' %}">View Vendors</a></div><div class='vendor'><h3>Chic Accessories</h3><p>Trendy accessories for all occasions</p><a href="{% url 'chic' %}">View Vendors</a></div><div class='vendor'><h3>Urban Outfitters</h3><p>Modern and stylish clothing for the urban dweller</p><a href="{% url 'urban' %}">View Vendors</a></div>        </div>
+    </div>
+
+    <div class="newsletter">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Stay updated with our latest offers and products!</p>
+            <form method="post" action="#">
+                <input type="email" name="email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+                    </div>
+    </div>
+</div>
+    <div id="productModal" class="product-modal">
+        <div class="product-modal-content">
+            <span class="close">&times;</span>
+            <div id="productDetails"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Princess Luxuries. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="{% static '../code.jquery.com/jquery-3.6.0.min.js' %}"></script>
+
+</body>
+</html>
